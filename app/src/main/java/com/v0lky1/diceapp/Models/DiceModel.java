@@ -1,17 +1,13 @@
 package com.v0lky1.diceapp.Models;
 
 public class DiceModel {
-    private int numberDice;
+    private int rolled;
 
-    public DiceModel() {
+    public int getRolled() {
+        return rolled;
     }
 
-    public int getNumberDice() {
-        return numberDice;
+    public void roll() {
+        rolled = (int) (Math.random() * 6) + 1;
     }
-
-    public void setNumberDice(int number) {
-        numberDice = number;
-    }
-
 }

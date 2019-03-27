@@ -46,51 +46,45 @@ public class DiceView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        float width = canvas.getWidth();
-        float height = canvas.getHeight();
+        float width = getWidth();
+        float height = getHeight();
         float r = width / 100 * 10 / 2;
 
 
-        if (diceModel.getNumberDice() == 1) {
-            canvas.drawCircle(width / 2, height / 2, r, paint);
-            //done
-        } else if (diceModel.getNumberDice() == 2) {
-            canvas.drawCircle(width / 4, height / 4, r, paint);
-            canvas.drawCircle(width - width / 4, height - height / 4, r, paint);
+        if (diceModel.getRolled() == 1) {
+            canvas.drawCircle(width / 2, height / 2, r, paint); //50 50
 
-        } else if (diceModel.getNumberDice() == 3) {
-            canvas.drawCircle(width / 4, height / 4, r, paint);
-            canvas.drawCircle(width / 2, height / 2, r, paint);
-            canvas.drawCircle(width - width / 4, height - height / 4, r, paint);
+        } else if (diceModel.getRolled() == 2) {
+            canvas.drawCircle(width / 4, height / 4, r, paint); //25 25
+            canvas.drawCircle(width - width / 4, height - height / 4, r, paint); //75 75
+
+        } else if (diceModel.getRolled() == 3) {
+            canvas.drawCircle(width / 4, height / 4, r, paint); //25 25
+            canvas.drawCircle(width / 2, height / 2, r, paint); //50 50
+            canvas.drawCircle(width - width / 4, height - height / 4, r, paint); //75 75
 
 
-        } else if (diceModel.getNumberDice() == 4) {
+        } else if (diceModel.getRolled() == 4) {
             canvas.drawCircle(width / 4, height / 4, r, paint); //25, 25
             canvas.drawCircle(width - width / 4, height - height / 4, r, paint); //75 75
             canvas.drawCircle(width - width / 4, height / 4, r, paint); //75 25
-            canvas.drawCircle(width/4, height - height /4, r, paint); //25 75
+            canvas.drawCircle(width / 4, height - height / 4, r, paint); //25 75
 
 
-        } else if (diceModel.getNumberDice() == 5) {
+        } else if (diceModel.getRolled() == 5) {
             canvas.drawCircle(width / 4, height / 4, r, paint); //25, 25
             canvas.drawCircle(width - width / 4, height - height / 4, r, paint); //75 75
             canvas.drawCircle(width - width / 4, height / 4, r, paint); //75 25
-            canvas.drawCircle(width/4, height - height /4, r, paint); //25 75
-            canvas.drawCircle(width / 2, height / 2, r, paint);
+            canvas.drawCircle(width / 4, height - height / 4, r, paint); //25 75
+            canvas.drawCircle(width / 2, height / 2, r, paint); //50 50
 
-        } else if (diceModel.getNumberDice() == 6) {
+        } else if (diceModel.getRolled() == 6) {
             canvas.drawCircle(width / 4, height / 4, r, paint); //25, 25
             canvas.drawCircle(width - width / 4, height - height / 4, r, paint); //75 75
             canvas.drawCircle(width - width / 4, height / 4, r, paint); //75 25
-            canvas.drawCircle(width/4, height - height /4, r, paint); //25 75
-            //25 50
-            canvas.drawCircle(width/4, height/2, r, paint);
-            //75 50
-            canvas.drawCircle(width-width/4, height/2, r, paint);
-
-
+            canvas.drawCircle(width / 4, height - height / 4, r, paint); //25 75
+            canvas.drawCircle(width / 4, height / 2, r, paint); //25 50
+            canvas.drawCircle(width - width / 4, height / 2, r, paint); //75 50
         }
-
-
     }
 }

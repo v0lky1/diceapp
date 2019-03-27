@@ -2,42 +2,66 @@ package com.v0lky1.diceapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
+import com.v0lky1.diceapp.Models.BeetleModel;
 import com.v0lky1.diceapp.Models.DiceModel;
+import com.v0lky1.diceapp.Views.BeetleView;
 import com.v0lky1.diceapp.Views.DiceView;
 
 public class MainActivity extends AppCompatActivity {
-        DiceModel diceModel = new DiceModel();
-        Button throwDice;
+    DiceModel diceModelOne = new DiceModel();
+    DiceModel diceModelTwo = new DiceModel();
+    DiceModel diceModelThree = new DiceModel();
+    BeetleModel beetleModel = new BeetleModel();
 
-        DiceView diceTwo;
-        DiceView diceOne;
+    DiceView diceOne;
+    DiceView diceTwo;
+    DiceView diceThree;
+    BeetleView beetleView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         diceOne = findViewById(R.id.diceViewOne);
-        diceOne.setDiceModel(diceModel);
+        diceOne.setDiceModel(diceModelOne);
         diceTwo = findViewById(R.id.diceViewTwo);
-        diceTwo.setDiceModel(diceModel);
-        throwDice = findViewById(R.id.throwDice);
+        diceTwo.setDiceModel(diceModelTwo);
+        diceThree = findViewById(R.id.diceViewThree);
+        diceThree.setDiceModel(diceModelThree);
+
+        beetleView = findViewById(R.id.beetleView);
+        beetleView.setBeetleModel(beetleModel);
 
     }
 
     public void clickListener(View view) {
-        int randomNrOne = (int) (Math.random()*6)+1;
-        diceModel.setNumberDice(randomNrOne);
+        diceModelOne.roll();
+        diceModelTwo.roll();
+        diceModelThree.roll();
 
-        int randomNrTwo = (int) (Math.random()*6)+1;
-        diceModel.setNumberDice(randomNrTwo);
+        int diceOneRolled = diceModelOne.getRolled();
+        int diceTwoRolled = diceModelTwo.getRolled();
+        int diceThreeRolled = diceModelThree.getRolled();
+
+        if (diceOneRolled == 6) {
+            beetleModel.addSix();
+            Log.i("Rolled a Six", "clickListener: Six added");
+        }
+        if (diceTwoRolled == 6) {
+            beetleModel.addSix();
+        }
+        if (diceThreeRolled == 6) {
+            beetleModel.addSix();
+        }
 
 
         diceOne.invalidate();
         diceTwo.invalidate();
+        diceThree.invalidate();
+        beetleView.invalidate();
     }
 }

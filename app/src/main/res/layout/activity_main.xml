@@ -8,12 +8,12 @@
 
     <com.v0lky1.diceapp.Views.DiceView
         android:id="@+id/diceViewOne"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toStartOf="@+id/diceViewTwo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/diceViewThree"
+        app:layout_constraintTop_toTopOf="@+id/diceViewTwo" />
 
     <Button
         android:id="@+id/throwDice"
@@ -30,15 +30,32 @@
 
     <com.v0lky1.diceapp.Views.DiceView
         android:id="@+id/diceViewTwo"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="23dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/throwDice"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/diceViewOne" />
+
+    <com.v0lky1.diceapp.Views.DiceView
+        android:id="@+id/diceViewThree"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toStartOf="@+id/diceViewOne"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/diceViewOne" />
+        app:layout_constraintTop_toTopOf="@+id/diceViewOne" />
+
+    <com.v0lky1.diceapp.Views.BeetleView
+        android:id="@+id/beetleView"
+        android:layout_width="419dp"
+        android:layout_height="540dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/diceViewOne"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
